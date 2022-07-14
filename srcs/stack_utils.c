@@ -1,53 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rsarri-c <rsarri-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/03 12:15:43 by rsarri-c          #+#    #+#             */
-/*   Updated: 2022/07/14 16:58:07 by rsarri-c         ###   ########.fr       */
+/*   Created: 2022/07/14 12:31:57 by rsarri-c          #+#    #+#             */
+/*   Updated: 2022/07/14 17:51:02 by rsarri-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	show_actual_state(t_stack *stack, char a)
+t_stack	*ft_stack_new(int content)
+{
+	t_stack	*new;
+
+	new = (t_stack *)malloc(sizeof(t_stack));
+	if (!new)
+		return (0);
+	new->content = content;
+	new->next = NULL;
+	return (new);
+}
+
+t_stack	*ft_stacklast(t_stack *stack)
 {
 	if (!stack)
-		return ;
-	printf("%d\n", stack->content);
+		return (0);
 	while (stack->next)
-	{
 		stack = stack->next;
-		printf("%d\n", stack->content);
-	}
-	printf("stack %c-----\n", a);
+	return (stack);
 }
 
-void	ft_free_stack(t_stack **stack)
+void	ft_stackadd_back(t_stack **stack, t_stack *new)
 {
-	t_stack	*tmp;
+	t_stack	*aux;
 
-	if (!*stack)
+	if (!new)
 		return ;
-	while (*stack)
+	if (!*stack)
 	{
-		tmp = *stack;
-		*stack = (*stack)->next;
-		free(*stack);
+		*stack = new;
+		return ;
 	}
-	*stack = NULL;
-}
-
-void	ft_free(t_stack **stack)
-{
-	ft_free_stack(stack);
-}
-
-void	ft_error(t_stack **stack)
-{
-	ft_putstr_fd("Error\n", 2);
-	ft_free(stack);
-	exit (1);
+	aux = ft_stacklast(*stack);
+	aux ->next = new;
 }

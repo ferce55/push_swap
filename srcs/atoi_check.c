@@ -1,18 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   atoi_check.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rsarri-c <rsarri-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/02 19:33:57 by rsarri-c          #+#    #+#             */
-/*   Updated: 2022/07/14 13:24:51 by rsarri-c         ###   ########.fr       */
+/*   Created: 2022/07/14 13:25:25 by rsarri-c          #+#    #+#             */
+/*   Updated: 2022/07/14 13:38:17 by rsarri-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/push_swap.h"
 
-int	ft_atoi(const char *str)
+int	check_result(unsigned int res, int s)
+{
+	if ((res > 2147483647 && s == 1) || (res > 2147483648 && s == -1))
+		return (-1);
+	return (0);
+}
+
+int	ft_atoi_check(const char *str, t_stack **stack)
 {
 	int				i;
 	int				s;
@@ -29,14 +36,14 @@ int	ft_atoi(const char *str)
 			s *= -1;
 		i++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
+	while (str[i])
 	{
+		if (str[i] < '0' || str[i] > '9')
+			ft_error(stack);
 		res = (res * 10) + (str[i] - '0');
 		i++;
 	}
-	if (res > 2147483647 && s == 1)
-		return (-1);
-	if (res > 2147483648 && s == -1)
-		return (0);
+	if (check_result(res, s) < 0)
+		ft_error(stack);
 	return (res * s);
 }
