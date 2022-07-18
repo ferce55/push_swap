@@ -6,7 +6,7 @@
 /*   By: rsarri-c <rsarri-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 13:25:25 by rsarri-c          #+#    #+#             */
-/*   Updated: 2022/07/14 13:38:17 by rsarri-c         ###   ########.fr       */
+/*   Updated: 2022/07/18 12:12:21 by rsarri-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	check_result(unsigned int res, int s)
 	return (0);
 }
 
-int	ft_atoi_check(const char *str, t_stack **stack)
+int	ft_atoi_check(const char *str, t_stack **stack, t_info **info)
 {
 	int				i;
 	int				s;
@@ -39,11 +39,11 @@ int	ft_atoi_check(const char *str, t_stack **stack)
 	while (str[i])
 	{
 		if (str[i] < '0' || str[i] > '9')
-			ft_error(stack);
+			ft_error(stack, *info);
 		res = (res * 10) + (str[i] - '0');
 		i++;
 	}
 	if (check_result(res, s) < 0)
-		ft_error(stack);
+		ft_error(stack, *info);
 	return (res * s);
 }

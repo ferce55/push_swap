@@ -6,14 +6,16 @@
 #    By: rsarri-c <rsarri-c@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/14 11:13:09 by rsarri-c          #+#    #+#              #
-#    Updated: 2022/07/14 18:01:46 by rsarri-c         ###   ########.fr        #
+#    Updated: 2022/07/18 15:19:50 by rsarri-c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 NAME		=	push_swap
 SRCS		=	./srcs/push_swap.c ./srcs/utils.c ./srcs/stack_utils.c ./srcs/atoi_check.c \
-				./srcs/mov_utils/swap_push.c ./srcs/mov_utils/rotate.c ./srcs/mov_utils/mov_iterator.c
+				./srcs/mov_utils/swap_push.c ./srcs/mov_utils/rotate.c ./srcs/mov_utils/mov_iterator.c \
+				./srcs/order_list/check_len.c ./srcs/order_list/five_nums.c ./srcs/order_list/three_nums.c \
+				./srcs/order_list/order_list.c
 
 CC			=	@gcc
 MLXFLAGS	= 	-framework OpenGL -framework AppKit

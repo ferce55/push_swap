@@ -6,7 +6,7 @@
 /*   By: rsarri-c <rsarri-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/03 12:15:43 by rsarri-c          #+#    #+#             */
-/*   Updated: 2022/07/14 16:58:07 by rsarri-c         ###   ########.fr       */
+/*   Updated: 2022/07/18 12:50:10 by rsarri-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,19 +35,20 @@ void	ft_free_stack(t_stack **stack)
 	{
 		tmp = *stack;
 		*stack = (*stack)->next;
-		free(*stack);
+		free(tmp);
 	}
 	*stack = NULL;
 }
 
-void	ft_free(t_stack **stack)
+void	ft_free(t_stack **stack, t_info *info)
 {
+	free(info);
 	ft_free_stack(stack);
 }
 
-void	ft_error(t_stack **stack)
+void	ft_error(t_stack **stack, t_info *info)
 {
 	ft_putstr_fd("Error\n", 2);
-	ft_free(stack);
+	ft_free(stack, info);
 	exit (1);
 }

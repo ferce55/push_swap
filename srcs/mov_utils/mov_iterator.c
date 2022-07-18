@@ -6,7 +6,7 @@
 /*   By: rsarri-c <rsarri-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 17:51:30 by rsarri-c          #+#    #+#             */
-/*   Updated: 2022/07/14 18:02:36 by rsarri-c         ###   ########.fr       */
+/*   Updated: 2022/07/18 15:40:31 by rsarri-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,12 @@ void	iter_push(char *c, t_stack **stack_a, t_stack **stack_b)
 {
 	if (c[1] == 'a')
 	{
-		do_push(stack_a, stack_b);
+		do_push(stack_b, stack_a);
 		write(1, "pa\n", 3);
 	}
 	if (c[1] == 'b')
 	{
-		do_push(stack_b, stack_a);
+		do_push(stack_a, stack_b);
 		write(1, "pb\n", 3);
 	}
 }
