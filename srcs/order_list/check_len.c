@@ -6,7 +6,7 @@
 /*   By: rsarri-c <rsarri-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 12:16:58 by rsarri-c          #+#    #+#             */
-/*   Updated: 2022/07/18 15:16:03 by rsarri-c         ###   ########.fr       */
+/*   Updated: 2022/07/20 10:42:50 by rsarri-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,6 @@ void	check_len(t_stack **stack_a, t_stack **stack_b, t_info **info)
 		five_nums_case(stack_a, stack_b, info);
 	/*else 
 		//order_list(stack_a, stack_b, info);*/
-	//show_actual_state(*stack_a, 'a');
+	show_actual_state(*stack_a, 'a');
+	show_actual_state(*stack_b, 'b');
 }
