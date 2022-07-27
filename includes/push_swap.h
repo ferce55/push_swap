@@ -6,7 +6,7 @@
 /*   By: rsarri-c <rsarri-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/03 11:56:48 by rsarri-c          #+#    #+#             */
-/*   Updated: 2022/07/27 14:48:36 by rsarri-c         ###   ########.fr       */
+/*   Updated: 2022/07/27 16:09:14 by rsarri-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,8 @@ int		check_order(t_stack **stack_a);
 void	three_nums_case(t_stack **stack_a, t_stack **stack_b);
 void	four_nums_case(t_stack **stack_a, t_stack **stack_b, t_info **info);
 void	five_nums_case(t_stack **stack_a, t_stack **stack_b, t_info **info);
-void	check_max_min(t_stack **stack_a, t_stack **stack_b, t_info **info);
+void	check_max_min(t_stack **stack_a, t_info **info);
 void	order_list(t_stack **stack_a, t_stack **stack_b, t_info **info);
 void	radix_sort(t_stack **stack_a, t_stack **stack_b, t_info **info);
-
-//borrar!!!!!!!
-void	show_actual_state(t_stack *stack, char a);
 
 #endif

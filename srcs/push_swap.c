@@ -6,7 +6,7 @@
 /*   By: rsarri-c <rsarri-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/03 11:29:50 by rsarri-c          #+#    #+#             */
-/*   Updated: 2022/07/20 12:46:11 by rsarri-c         ###   ########.fr       */
+/*   Updated: 2022/07/27 16:09:05 by rsarri-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,6 @@ int	main(int argc, char **argv)
 		return (0);
 	parse_string(argv, &stack_a, &info);
 	check_list(&stack_a, &info);
-	//show_actual_state(stack_a, 'a');
 	if (check_order(&stack_a) == 0)
 	{
 		ft_free(&stack_a, info);
