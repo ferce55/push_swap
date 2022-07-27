@@ -6,92 +6,73 @@
 /*   By: rsarri-c <rsarri-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 15:08:56 by rsarri-c          #+#    #+#             */
-/*   Updated: 2022/07/20 11:51:44 by rsarri-c         ###   ########.fr       */
+/*   Updated: 2022/07/20 12:52:59 by rsarri-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-static void	do_pos_two(t_stack **stack_a, t_stack **stack_b)
+void	iter_pos(t_stack **stack_a, t_stack **stack_b, int len, int pos)
 {
-	do_move("rra", stack_a, stack_b, 3);
-	do_move("rra", stack_a, stack_b, 3);
-	do_move("pa", stack_a, stack_b, 2);
-	do_move("ra", stack_a, stack_b, 2);
-	do_move("ra", stack_a, stack_b, 2);
-	do_move("ra", stack_a, stack_b, 2);
-}
+	t_stack	*aux;
 
-void	pos_last_num(t_stack **stack_a, t_stack **stack_b, int len, int pos)
-{
-	if (pos == 1)
+	aux = *stack_a;
+	if (pos < (len / 2))
 	{
-		do_move("ra", stack_a, stack_b, 2);
-		do_move("pa", stack_a, stack_b, 2);
-		do_move("rra", stack_a, stack_b, 3);
+		while (pos > 0)
+		{
+			pos--;
+			do_move("ra", stack_a, stack_b, 2);
+		}
 	}
-	else if ((pos == 2 && len == 4) || pos == 3)
-	{
-		do_move("rra", stack_a, stack_b, 3);
-		do_move("pa", stack_a, stack_b, 2);
-		do_move("ra", stack_a, stack_b, 2);
-		do_move("ra", stack_a, stack_b, 2);
-	}
-	else if (pos == 2 && len == 5)
-		do_pos_two(stack_a, stack_b);
 	else
 	{
-		do_move("ra", stack_a, stack_b, 2);
-		do_move("pa", stack_a, stack_b, 2);
+		while (pos <= len - 1)
+		{
+			pos++;
+			do_move("rra", stack_a, stack_b, 3);
+		}
 	}
 }
 
-static void	four_nums_case(t_stack **stack_a, t_stack **stack_b, t_info **info)
+void	four_nums_case(t_stack **stack_a, t_stack **stack_b, t_info **info)
 {
-	int	pos;
+	int		pos;
+	t_stack	*aux;
 
 	pos = 0;
-	do_move("pb", stack_a, stack_b, 2);
-	three_nums_case(stack_a, stack_b);
-	if ((*stack_b)->content < (*stack_a)->content)
-		do_move("pa", stack_a, stack_b, 2);
-	if ((*stack_b)->content > (*stack_a)->content)
-		pos = 1;
-	if ((*stack_b)->content > (*stack_a)->next->content)
-		pos = 2;
-	if ((*stack_b)->content > (*stack_a)->next->next->content)
+	aux = *stack_a;
+	while (aux->next)
 	{
-		do_move("ra", stack_a, stack_b, 2);
-		do_move("pa", stack_a, stack_b, 2);
-		pos = 0;
+		if (aux->content == (*info)->min)
+			break ;
+		aux = aux->next;
+		pos++;
 	}
-	pos_last_num(stack_a, stack_b, 4, pos);
+	iter_pos(stack_a, stack_b, 4, pos);
+	do_move("pb", stack_a, stack_b, 2);
+	if (check_order(stack_a) != 0)
+		three_nums_case(stack_a, stack_b);
+	do_move("pa", stack_a, stack_b, 2);
 }
 
 void	five_nums_case(t_stack **stack_a, t_stack **stack_b, t_info **info)
 {
-	int	pos;
+	int		pos;
+	t_stack	*aux;
 
 	pos = 0;
-	if ((*info)->len == 5)
+	aux = *stack_a;
+	while (aux->next)
 	{
-		do_move("pb", stack_a, stack_b, 2);
+		if (aux->content == (*info)->max)
+			break ;
+		aux = aux->next;
+		pos++;
 	}
+	iter_pos(stack_a, stack_b, 5, pos);
+	do_move("pb", stack_a, stack_b, 2);
 	four_nums_case(stack_a, stack_b, info);
-	if ((*info)->len == 4)
-		return ;
-	if ((*stack_b)->content < (*stack_a)->content)
-	{
-		do_move("pa", stack_a, stack_b, 2);
-		return ;
-	}
-	if ((*stack_b)->content > (*stack_a)->content)
-		pos = 1;
-	if ((*stack_b)->content > (*stack_a)->next->content)
-		pos = 2;
-	if ((*stack_b)->content > (*stack_a)->next->next->content)
-		pos = 3;
-	if ((*stack_b)->content > (*stack_a)->next->next->next->content)
-		pos = 4;
-	pos_last_num(stack_a, stack_b, 5, pos);
+	do_move("pa", stack_a, stack_b, 2);
+	do_move("ra", stack_a, stack_b, 2);
 }
