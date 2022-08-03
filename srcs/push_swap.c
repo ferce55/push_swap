@@ -6,7 +6,7 @@
 /*   By: rsarri-c <rsarri-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/03 11:29:50 by rsarri-c          #+#    #+#             */
-/*   Updated: 2022/08/03 11:49:28 by rsarri-c         ###   ########.fr       */
+/*   Updated: 2022/08/03 11:50:53 by rsarri-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,6 @@ int	main(int argc, char **argv)
 	t_info	*info;
 
 	info = ft_calloc(1, sizeof(t_info));
-	//at_exit();
 	if (!info)
 		ft_error(&stack_a, info);
 	if (argc < 2)
