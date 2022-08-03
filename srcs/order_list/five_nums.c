@@ -6,7 +6,7 @@
 /*   By: rsarri-c <rsarri-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 15:08:56 by rsarri-c          #+#    #+#             */
-/*   Updated: 2022/07/20 12:52:59 by rsarri-c         ###   ########.fr       */
+/*   Updated: 2022/08/03 11:42:09 by rsarri-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,12 @@ void	four_nums_case(t_stack **stack_a, t_stack **stack_b, t_info **info)
 		pos++;
 	}
 	iter_pos(stack_a, stack_b, 4, pos);
-	do_move("pb", stack_a, stack_b, 2);
 	if (check_order(stack_a) != 0)
+	{
+		do_move("pb", stack_a, stack_b, 2);
 		three_nums_case(stack_a, stack_b);
-	do_move("pa", stack_a, stack_b, 2);
+		do_move("pa", stack_a, stack_b, 2);
+	}
 }
 
 void	five_nums_case(t_stack **stack_a, t_stack **stack_b, t_info **info)

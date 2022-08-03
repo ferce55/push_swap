@@ -6,7 +6,7 @@
 /*   By: rsarri-c <rsarri-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/03 11:29:50 by rsarri-c          #+#    #+#             */
-/*   Updated: 2022/07/27 16:09:05 by rsarri-c         ###   ########.fr       */
+/*   Updated: 2022/08/03 11:36:12 by rsarri-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,19 +33,21 @@ int	check_num(char *nums, t_stack **stack, t_info **info)
 	return (num);
 }
 
-void	check_list(t_stack **stack, t_info **info)
+int	check_list(t_stack **stack, t_info **info)
 {
 	t_stack	*aux;
 	t_stack	*aux1;
 	int		len;
 
 	len = 0;
+	if (!*stack)
+		return (0);
 	aux = *stack;
 	while (aux->next)
 	{
 		len ++;
 		aux1 = aux->next;
-		while (aux1->next)
+		while (aux1)
 		{
 			if (aux->content == aux1->content)
 				ft_error(stack, *info);
@@ -54,6 +56,7 @@ void	check_list(t_stack **stack, t_info **info)
 		aux = aux->next;
 	}
 	(*info)->len = len + 1;
+	return (1);
 }
 
 void	parse_string(char **argv, t_stack	**stack, t_info **info)
@@ -67,11 +70,12 @@ void	parse_string(char **argv, t_stack	**stack, t_info **info)
 	while (argv[j])
 	{
 		nums_splitted = ft_split(argv[j], ' ');
-		i = -1;
-		while (nums_splitted[++i])
+		i = 0;
+		while (nums_splitted[i])
 		{
 			num = check_num(nums_splitted[i], stack, info);
 			ft_stackadd_back(stack, ft_stack_new(num));
+			i++;
 		}
 		free(nums_splitted);
 		j++;
@@ -91,7 +95,11 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		return (0);
 	parse_string(argv, &stack_a, &info);
-	check_list(&stack_a, &info);
+	if (check_list(&stack_a, &info) == 0)
+	{
+		ft_free(&stack_a, info);
+		return (0);
+	}	
 	if (check_order(&stack_a) == 0)
 	{
 		ft_free(&stack_a, info);
