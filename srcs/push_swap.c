@@ -6,7 +6,7 @@
 /*   By: rsarri-c <rsarri-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/03 11:29:50 by rsarri-c          #+#    #+#             */
-/*   Updated: 2022/08/03 11:50:53 by rsarri-c         ###   ########.fr       */
+/*   Updated: 2022/08/03 13:36:31 by rsarri-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ void	parse_string(char **argv, t_stack	**stack, t_info **info)
 		{
 			num = check_num(nums_splitted[i], stack, info);
 			ft_stackadd_back(stack, ft_stack_new(num));
+			free(nums_splitted[i]);
 			i++;
 		}
 		free(nums_splitted);
