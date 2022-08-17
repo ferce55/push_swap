@@ -6,7 +6,7 @@
 /*   By: rsarri-c <rsarri-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 14:47:59 by rsarri-c          #+#    #+#             */
-/*   Updated: 2022/07/27 15:24:13 by rsarri-c         ###   ########.fr       */
+/*   Updated: 2022/08/17 12:05:14 by rsarri-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,4 +106,5 @@ void	order_list(t_stack **stack_a, t_stack **stack_b, t_info **info)
 	order_array(info, array);
 	get_list_pos(stack_a, info, array);
 	radix_sort(stack_a, stack_b, info);
+	free(array);
 }
