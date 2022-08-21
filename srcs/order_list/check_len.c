@@ -6,7 +6,7 @@
 /*   By: rsarri-c <rsarri-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 12:16:58 by rsarri-c          #+#    #+#             */
-/*   Updated: 2022/07/27 16:07:37 by rsarri-c         ###   ########.fr       */
+/*   Updated: 2022/08/17 15:19:46 by rsarri-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	check_len(t_stack **stack_a, t_stack **stack_b, t_info **info)
 	check_max_min(stack_a, info);
 	if ((*info)->len == 2)
 		do_move("sa", stack_a, stack_b, 2);
-	if ((*info)->len == 3)
+	else if ((*info)->len == 3)
 		three_nums_case(stack_a, stack_b);
 	else if ((*info)->len == 4)
 		four_nums_case(stack_a, stack_b, info);
