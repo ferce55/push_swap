@@ -6,7 +6,7 @@
 /*   By: rsarri-c <rsarri-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/03 11:29:50 by rsarri-c          #+#    #+#             */
-/*   Updated: 2022/08/17 15:19:24 by rsarri-c         ###   ########.fr       */
+/*   Updated: 2022/08/21 15:58:58 by rsarri-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,13 +99,17 @@ int	main(int argc, char **argv)
 	{
 		ft_free(&stack_a, info);
 		return (0);
-	}	
+	}
+	at_exit();
 	if (check_order(&stack_a) == 0)
 	{
 		ft_free(&stack_a, info);
 		return (0);
 	}
+	at_exit();
 	check_len(&stack_a, &stack_b, &info);
+	at_exit();
 	ft_free(&stack_a, info);
+	at_exit();
 	return (0);
 }
