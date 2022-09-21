@@ -6,7 +6,7 @@
 /*   By: rsarri-c <rsarri-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 15:08:56 by rsarri-c          #+#    #+#             */
-/*   Updated: 2022/08/03 11:42:09 by rsarri-c         ###   ########.fr       */
+/*   Updated: 2022/09/21 11:13:07 by rsarri-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 
 void	iter_pos(t_stack **stack_a, t_stack **stack_b, int len, int pos)
 {
-	t_stack	*aux;
-
-	aux = *stack_a;
 	if (pos < (len / 2))
 	{
 		while (pos > 0)
