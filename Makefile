@@ -6,7 +6,7 @@
 #    By: rsarri-c <rsarri-c@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/14 11:13:09 by rsarri-c          #+#    #+#              #
-#    Updated: 2022/08/17 12:37:41 by rsarri-c         ###   ########.fr        #
+#    Updated: 2022/10/01 16:02:33 by rsarri-c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ COMP		=	$(CC) $(CFLAGS) $(SANITIZE) $(SRCS) $(LIBFT) -o $(NAME)
 
 $(NAME):	$(OBJS)
 		@echo "---------   Compiling   -----------"
-		@MAKE -sC ./Libft
+		@make -sC ./Libft
 		$(COMP)
 		@echo "--------------DONE!!---------------"
 
