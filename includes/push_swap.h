@@ -6,7 +6,7 @@
 /*   By: rsarri-c <rsarri-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/03 11:56:48 by rsarri-c          #+#    #+#             */
-/*   Updated: 2022/07/27 16:09:14 by rsarri-c         ###   ########.fr       */
+/*   Updated: 2022/10/01 16:28:45 by rsarri-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,13 @@ typedef struct s_info
 	int	len;
 }	t_info;
 
-void	ft_error(t_stack **stack, t_info *info);
+void	ft_error(t_stack *stack, t_info *info);
 t_stack	*ft_stack_new(int content);
 t_stack	*ft_stacklast(t_stack *stack);
-void	ft_free(t_stack **stack, t_info *info);
+void	ft_free(t_stack *stack, t_info *info);
 void	ft_stackadd_back(t_stack **stack, t_stack *new);
 void	ft_stackadd_front(t_stack **stack, t_stack *new);
-int		ft_atoi_check(const char *str, t_stack **stack, t_info **info);
+int		ft_atoi_check(const char *str, t_stack *stack, t_info **info);
 void	do_move(char *c, t_stack **stack_a, t_stack **stack_b, int count);
 void	iter_swap(char *c, t_stack **stack_a, t_stack **stack_b);
 void	iter_rotate(char *c, t_stack **stack_a, t_stack **stack_b);

@@ -6,7 +6,7 @@
 /*   By: rsarri-c <rsarri-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 13:25:25 by rsarri-c          #+#    #+#             */
-/*   Updated: 2022/08/21 15:50:32 by rsarri-c         ###   ########.fr       */
+/*   Updated: 2022/10/01 16:28:30 by rsarri-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ unsigned int	take_num(const char *str, int i)
 	return (res);
 }
 
-int	ft_atoi_check(const char *str, t_stack **stack, t_info **info)
+int	ft_atoi_check(const char *str, t_stack *stack, t_info **info)
 {
 	int				i;
 	int				s;

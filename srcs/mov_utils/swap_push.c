@@ -6,7 +6,7 @@
 /*   By: rsarri-c <rsarri-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 15:00:32 by rsarri-c          #+#    #+#             */
-/*   Updated: 2022/07/18 15:41:25 by rsarri-c         ###   ########.fr       */
+/*   Updated: 2022/10/01 16:18:46 by rsarri-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	do_push(t_stack **stack_src, t_stack **stack_dst)
 	aux = (*stack_src)->next;
 	ft_stackadd_front(stack_dst, *stack_src);
 	*stack_src = aux;
-}
+} 
 
 void	do_swap(t_stack **stack)
 {

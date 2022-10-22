@@ -6,7 +6,7 @@
 /*   By: rsarri-c <rsarri-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 12:31:57 by rsarri-c          #+#    #+#             */
-/*   Updated: 2022/07/18 15:31:27 by rsarri-c         ###   ########.fr       */
+/*   Updated: 2022/10/01 17:26:06 by rsarri-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,7 @@ void	ft_stackadd_front(t_stack **stack, t_stack *new)
 {
 	if (!new)
 		return ;
-	if (!stack)
-	{
-		*stack = new;
-		return ;
-	}
-	new ->next = *stack;
+	new->next = *stack;
 	*stack = new;
 }
 
@@ -58,5 +53,5 @@ void	ft_stackadd_back(t_stack **stack, t_stack *new)
 		return ;
 	}
 	aux = ft_stacklast(*stack);
-	aux ->next = new;
+	aux->next = new;
 }

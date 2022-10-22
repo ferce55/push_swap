@@ -6,34 +6,34 @@
 /*   By: rsarri-c <rsarri-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/03 12:15:43 by rsarri-c          #+#    #+#             */
-/*   Updated: 2022/07/27 16:09:34 by rsarri-c         ###   ########.fr       */
+/*   Updated: 2022/10/01 17:08:49 by rsarri-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	ft_free_stack(t_stack **stack)
+void	ft_free_stack(t_stack *stack)
 {
 	t_stack	*tmp;
 
-	if (!*stack)
+	if (!stack)
 		return ;
-	while (*stack)
+	while (stack)
 	{
-		tmp = *stack;
-		*stack = (*stack)->next;
+		tmp = stack;
+		stack = stack->next;
 		free(tmp);
 	}
-	*stack = NULL;
+	free(stack);
 }
 
-void	ft_free(t_stack **stack, t_info *info)
+void	ft_free(t_stack *stack, t_info *info)
 {
 	free(info);
 	ft_free_stack(stack);
 }
 
-void	ft_error(t_stack **stack, t_info *info)
+void	ft_error(t_stack *stack, t_info *info)
 {
 	ft_putstr_fd("Error\n", 2);
 	ft_free(stack, info);

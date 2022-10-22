@@ -6,7 +6,7 @@
 #    By: rsarri-c <rsarri-c@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/14 11:13:09 by rsarri-c          #+#    #+#              #
-#    Updated: 2022/10/01 16:02:33 by rsarri-c         ###   ########.fr        #
+#    Updated: 2022/10/01 17:18:33 by rsarri-c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,9 +18,8 @@ SRCS		=	./srcs/push_swap.c ./srcs/utils.c ./srcs/stack_utils.c ./srcs/atoi_check
 				./srcs/order_list/order_list.c ./srcs/order_list/radix_sort.c
 
 CC			=	@gcc
-MLXFLAGS	= 	-framework OpenGL -framework AppKit
 CFLAGS		=	-Wall -Werror -Wextra
--- SANITIZE	=	-fsanitize=address
+SANITIZE	=	-fsanitize=address
 RM			=	rm -rf
 
 
